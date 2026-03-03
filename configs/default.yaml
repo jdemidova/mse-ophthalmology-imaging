@@ -1,0 +1,6 @@
+seed: 42
+data_dir: data
+batch_size: 8
+lr: 0.0003
+epochs: 30
+img_size: 512

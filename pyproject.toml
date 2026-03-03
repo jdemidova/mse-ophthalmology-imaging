@@ -1,0 +1,28 @@
+[project]
+name = "ophthalmology-imaging"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "matplotlib",
+  "opencv-python",
+  "tqdm",
+  "pyyaml",
+  "torch",
+  "torchvision",
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+  "pre-commit",
+  "ipykernel",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
