@@ -1,11 +1,13 @@
-What the project does (1 paragraph)
+THAT IS A README DRAFT/PLAN:
 
-Setup (exact commands)
+1) What the project does
 
-Data access policy (where data lives; what’s not in repo)
+2) Setup, commands
 
-How to run: training / inference / evaluation
+3) Data access policy (where data lives, what’s not in repo)
 
-Repo structure (short tree)
+4) How to run: training / inference / evaluation
 
-Contact + supervision context (who owns what)
+5) Repo notes
+
+6) Contacts, ownership, etc
