@@ -81,7 +81,7 @@ class ImageMaskDataset(Dataset):
 
         # PIL like torchvision datasets (returns PIL unless you transform to tensor)
         image = Image.open(img_path).convert("RGB")
-        mask = Image.open(mask_path)  # keep mode as-is (often "L" for binary / indexed)
+        mask = Image.open(mask_path)
         if image.size != mask.size:
             raise RuntimeError(
                 f"Size mismatch for {img_path.name}: image {image.size}, mask {mask.size}"

@@ -6,8 +6,8 @@ import scipy.ndimage as ndi
 from typing import Iterable, Union, Optional
 
 
-# For masks you often want integer labels, not float [0,1].
-# If your masks are binary 0/255, this turns them into {0,1} ints.
+# For masks -> integer labels, not float [0,1].
+# If masks are binary 0/255, this turns them into {0,1} ints
 def mask_to_long_tensor(pil_mask):
     arr = np.array(pil_mask)
     return torch.from_numpy((arr > 0).astype("int64"))

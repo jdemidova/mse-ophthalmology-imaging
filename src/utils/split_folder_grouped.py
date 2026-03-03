@@ -1,6 +1,4 @@
-# split_folder_grouped.py
 from __future__ import annotations
-
 import argparse
 import random
 import shutil
@@ -25,19 +23,19 @@ def _safe_dest(dest_dir: Path, name: str) -> Path:
 def _group_key(p: Path) -> str:
     """
     Group files by 'base name' (filename without the last extension),
-    so C521_S1_I14_L.png and C521_S1_I14_L.jpg stay together.
+    so img_name_01.png and img_name_01.jpg stay together.
     """
-    return p.stem  # last suffix removed only; perfect for .png/.jpg pairs
+    return p.stem  # last suffix removed only, for .png/.jpg pairs
 
 
 # seed=42 sets the random number generator’s starting state, so the shuffle
-# (and therefore your train/test split) is reproducible.
+# (and therefore train/test split) is reproducible
 #
-# - With --seed 42: every run on the same file set → same split.
-# - With a different seed (e.g. --seed 7) → different split.
-# - With seed=None (in my code you’d pass --seed not at all only if you change default, or you can edit it) → it uses system entropy → split changes each run.
+# - With --seed 42: every run on the same file set -> same split
+# - With a different seed (e.g. --seed 7) -> different split
+# - With seed=None -> uses system entropy -> split changes each run
 #
-# Result: debugging + fair comparisons between experiments.
+# Results are debugging and fair comparisons between experiments
 
 
 def split_folder_grouped(
