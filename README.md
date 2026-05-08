@@ -1,13 +1,28 @@
-THAT IS A README DRAFT/PLAN:
+# Overview
 
-1) What the project does
+# Prerequisites
+This project uses these:
+- `Python 3` as programming language
+- `Docker` for environment management and reproducibility
+- `DVC` for data and model versioning
+- `uv/pyproject` for environment management
+- `MLflow` as tracker
+- `WandB` for experiment tracking and visualization (TBD)
+- `PyTorch` as DL framework
+- `Makefile` as command line interface
+- `FastAPI` (TBD)
+- `Streamlit` (TBD)
+- `pytest` and `ruff` for testing and linting (TBD)
 
-2) Setup, commands
+# Datasets Used
 
-3) Data access policy (where data lives, what’s not in repo)
+## ROI extraction
 
-4) How to run: training / inference / evaluation
+- UBIPr dataset of periocular images: https://socia-lab.di.ubi.pt/~ubipr/
 
-5) Repo notes
+## Blood vessel extraction
 
-6) Contacts, ownership, etc
+# Experiment tracking
+
+# Data/model versioning
+

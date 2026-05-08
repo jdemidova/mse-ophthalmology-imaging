@@ -1,7 +1,6 @@
 # Project internal
-non_pub/
-data/sample_0001
-data/ubipr1
+data/raw/*
+data/processed/*
 label-studio/
 runs/
 checkpoints/
@@ -16,7 +15,6 @@ desktop.ini
 .ipynb_checkpoints/
 
 # Data / artifacts (keep empty dirs with .gitkeep if needed)
-#data/
 wandb/
 mlruns/
 

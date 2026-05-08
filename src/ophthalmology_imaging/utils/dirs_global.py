@@ -11,5 +11,3 @@ def find_repo_root(start=None):
 
 ROOT = find_repo_root()
 DATA_DIR = ROOT + "/data"
-
-ROOT, DATA_DIR

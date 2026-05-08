@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import argparse
 import random
 import shutil
@@ -28,10 +29,10 @@ def _group_key(p: Path) -> str:
     return p.stem  # last suffix removed only, for .png/.jpg pairs
 
 
-# seed=42 sets the random number generator’s starting state, so the shuffle
+# seed=13 sets the random number generator’s starting state, so the shuffle
 # (and therefore train/test split) is reproducible
 #
-# - With --seed 42: every run on the same file set -> same split
+# - With --seed 13: every run on the same file set -> same split
 # - With a different seed (e.g. --seed 7) -> different split
 # - With seed=None -> uses system entropy -> split changes each run
 #
@@ -41,7 +42,7 @@ def _group_key(p: Path) -> str:
 def split_folder_grouped(
     a_dir: Path,
     train_ratio: float = 0.8,
-    seed: int | None = 42,
+    seed: int | None = 13,
     move: bool = False,
 ) -> None:
     a_dir = a_dir.resolve()
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("a", help="Path to folder 'a' containing files to split")
     ap.add_argument("--ratio", type=float, default=0.8, help="Train ratio by GROUPS (default 0.8)")
-    ap.add_argument("--seed", type=int, default=42, help="RNG seed (default 42)")
+    ap.add_argument("--seed", type=int, default=13, help="RNG seed (default 13)")
     ap.add_argument("--move", action="store_true", help="Move files instead of copying")
     args = ap.parse_args()
 
