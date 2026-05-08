@@ -1,0 +1,45 @@
+seed: 13
+device: auto
+
+data:
+  image_dir: data/processed/
+  split:
+  image_size: [512, 512]
+  num_classes: 2
+  ignore_index: null
+
+model:
+  name: unet
+  encoder: resnet34
+  pretrained: true
+  in_channels: 3
+  num_classes: 2
+
+train:
+  epochs: 30
+  batch_size: 8
+  lr: 0.0001
+  weight_decay: 0.00001
+  loss: dice_bce
+  amp: true
+  early_stopping:
+    metric: val/dice
+    mode: max
+    patience: 7
+
+metrics:
+  - dice
+  - iou
+  - pixel_accuracy
+  - precision
+  - recall
+
+tracking:
+  backend: mlflow
+  tracking_uri: http://localhost:5002
+  experiment_name: experiment
+
+outputs:
+  checkpoint_dir: models/finetuned
+  report_dir: reports
+

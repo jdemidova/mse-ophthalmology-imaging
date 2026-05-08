@@ -1,0 +1,39 @@
+services:
+  trainer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    env_file:
+      - .env
+    command: python -m seg_project.training.train --config config/train.yaml
+    profiles: ["train"]
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./config:/app/config
+    command: uvicorn seg_project.api.main:app --host 0.0.0.0 --port 8000
+    profiles: ["api"]
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./mlruns:/mlruns
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5002
+      --backend-store-uri /mlruns
+
